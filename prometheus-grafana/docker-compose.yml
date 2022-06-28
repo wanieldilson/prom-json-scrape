@@ -1,0 +1,55 @@
+version: "3.7"
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    networks:
+      metrics:
+        ipv4_address: 172.2.0.11
+
+  grafana:
+    image: grafana/grafana:latest
+    volumes:
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/datasource.yml:/etc/grafana/provisioning/datasources/datasource.yaml
+    ports:
+      - 3000:3000
+    networks:
+      metrics:
+        ipv4_address: 172.2.0.12
+    links:
+      - prometheus
+  
+  metrics:
+    container_name: dhcp_metrics
+    image: metrics
+    build:
+        context: .
+        dockerfile: Dockerfile
+    restart: always
+    ports:
+        - "8080:8080"
+    networks:
+      metrics:
+        ipv4_address: 172.2.0.13
+
+  json_exporter:
+    image: quay.io/prometheuscommunity/json-exporter
+    container_name: json_exporter
+    volumes:
+      - $PWD/json_exporter/config.yml:/config.yml:ro
+    ports:
+      - 7979:7979
+    networks:
+      metrics:
+        ipv4_address: 172.2.0.14
+
+networks:
+  metrics:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.2.0.0/24"   # <--- 172.1 or 172.2? 

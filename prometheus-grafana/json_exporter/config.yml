@@ -1,0 +1,12 @@
+headers:
+  MyHeader: MyHeaderValue
+
+metrics:
+  - name: subnetstats
+    type: object
+    help: Usage statistics for MoJO site subnets
+    path: '{ $.sites[*].*.subnets[*] }'
+    labels:
+      cidr: '{.cidr}'
+    values:
+      remaining_ips: '{ .remaining_ips }'
