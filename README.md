@@ -21,3 +21,7 @@ _Running `docker compose up` will spin up nginx, prometheus, Grafana and a JSON 
 
 
 _You should only need a working Docker installation for this to work.  It has only been tested on Ubuntu_
+
+## Please note!
+
+The JSON exporter/scraping isn't working yet! 
