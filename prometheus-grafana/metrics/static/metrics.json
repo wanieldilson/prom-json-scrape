@@ -11,7 +11,7 @@
             "usage": 0.0
           },
           {
-            "cidr": "192.168.1.1/24",
+            "cidr": "192.168.2.1/24",
             "reservations_count": 0,
             "remaining_ips": 201,
             "leases count": 0,

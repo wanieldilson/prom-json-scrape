@@ -52,4 +52,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: "172.2.0.0/24"   # <--- 172.1 or 172.2? 
+        - subnet: "172.2.0.0/24"   

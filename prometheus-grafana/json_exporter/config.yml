@@ -2,11 +2,27 @@ headers:
   MyHeader: MyHeaderValue
 
 metrics:
-  - name: subnetstats
+  - name: subnet_statistics
     type: object
-    help: Usage statistics for MoJO site subnets
-    path: '{ $.sites[*].*.subnets[*] }'
+    help: DHCP statistics of MoJO subnets
+    path: '{ $.sites[*].*.subnets[*] }' 
     labels:
-      cidr: '{.cidr}'
+      cidr: '{ .cidr }'
+      usage: '{ .usage }'
     values:
       remaining_ips: '{ .remaining_ips }'
+      reservations_count: '{ .reservations_count }'
+
+  - name: MoJO_site
+    type: object
+    help: CIDR Ranges present at MoJO sites
+    path: '{ $.sites[*] }' 
+    labels:
+      Info: '{ }'
+      subnets: '{ .*.subnets[*].cidr }'
+    values:
+      info: 1
+      
+      
+    
+
