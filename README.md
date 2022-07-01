@@ -19,9 +19,9 @@ _Running `docker compose up` will spin up nginx, prometheus, Grafana and a JSON 
 
 * _Docker_
 
-
 _You should only need a working Docker installation for this to work.  It has only been tested on Ubuntu_
 
-## Please note!
+## Usage
 
-The JSON exporter/scraping isn't working yet! 
+_Clone this repo, run `docker-compose up` and then point your browser to http://localhost:9090/_
+_On the Graph tab search `subnet_statistics_remaining_ips` and you'll see the example metrics in the UI_
