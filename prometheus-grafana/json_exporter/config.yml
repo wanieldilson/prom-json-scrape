@@ -8,10 +8,10 @@ metrics:
     path: '{ $.sites[*].*.subnets[*] }' 
     labels:
       cidr: '{ .cidr }'
-      usage: '{ .usage }'
     values:
       remaining_ips: '{ .remaining_ips }'
       reservations_count: '{ .reservations_count }'
+      usage: '{ .usage }'
 
   - name: MoJO_site
     type: object

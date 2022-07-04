@@ -5,17 +5,17 @@
         "subnets": [
           {
             "cidr": "192.168.1.1/24",
-            "reservations_count": 0,
-            "remaining_ips": 201,
-            "leases count": 0,
-            "usage": 0.0
+            "reservations_count": 1,
+            "remaining_ips": 100,
+            "leases count": 100,
+            "usage": 50.0
           },
           {
             "cidr": "192.168.2.1/24",
-            "reservations_count": 0,
-            "remaining_ips": 201,
-            "leases count": 0,
-            "usage": 0.0
+            "reservations_count": 50,
+            "remaining_ips": 51,
+            "leases count": 100,
+            "usage": 74.5
           }
         ]
       }
