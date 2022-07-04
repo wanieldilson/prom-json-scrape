@@ -1,5 +1,11 @@
 headers:
   MyHeader: MyHeaderValue
+http_client_config:
+  tls_config:
+    insecure_skip_verify: true
+  basic_auth:
+    username: prometheus
+    password: prometheus  ## Remember this is a SANDBOX! Always store secrets securely
 
 metrics:
   - name: subnet_statistics
